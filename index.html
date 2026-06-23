@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonOS - Il Sistema Operativo Leggero su Base Arch Linux</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #1f6feb;
+            --border-color: #30363d;
+            --code-bg: #010409;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .features {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1max));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .technical-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-table th {
+            background-color: var(--code-bg);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .code-box {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9rem;
+            color: #e6edf3;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">MoonOS Project</div>
+            <nav>
+                <a href="#caratteristiche">Caratteristiche</a>
+                <a href="#specifiche">Specifiche</a>
+                <a href="#documentazione">Documentazione</a>
+                <a href="https://sourceforge.net/projects/osmoon/files/ISOs/moonos-2026.06-x86_64.iso/download" target="_blank" class="btn" style="padding: 6px 15px; font-size: 0.85rem;">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="hero">
+            <h1>Sistemi datati, massime prestazioni.</h1>
+            <p>Una distribuzione desktop basata sul cuore di Arch Linux e ottimizzata tramite i repository stabili di CachyOS. Progettata per essere leggera sulle macchine legacy ed estremamente reattiva su hardware moderno.</p>
+            <a href="https://sourceforge.net/projects/osmoon/files/ISOs/moonos-2026.06-x86_64.iso/download" target="_blank" class="btn">Scarica la ISO v2026.06</a>
+        </section>
+
+        <section id="caratteristiche" style="padding-top: 40px;">
+            <h2 class="section-title">Architettura del Sistema</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Kernel Altamente Ottimizzato</h3>
+                    <p>Sfrutta i moduli e lo scheduler del kernel CachyOS-Bore. Questo riduce la latenza dei processi in background, offrendo una fluidità superiore anche sotto carichi di lavoro intensi o su processori datati.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Gestione Avanzata della RAM</h3>
+                    <p>L'integrazione nativa di ZRAM tramite zram-generator permette al sistema di comprimere dinamicamente le pagine di memoria volatile. Riduce drasticamente l'uso dello spazio di swap su disco, prolungando la vita delle unità di archiviazione.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Pronto all'Uso</h3>
+                    <p>L'ambiente grafico viene configurato automaticamente durante l'installazione guidata con Calamares. Include il supporto preconfigurato a Flatpak e i tool personalizzati di gestione del sistema operativo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="specifiche" class="technical-section">
+            <h2 class="section-title">Requisiti di Sistema e Dettagli</h2>
+            <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px;">MoonOS è compatibile con l'architettura x86_64 standard, estendendo il supporto a CPU non recenti.</p>
+            
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Requisito Minimo</th>
+                        <th>Configurazione Consigliata</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Processore</td>
+                        <td>Intel Pentium o equivalente x86_64 (v1)</td>
+                        <td>Intel Core / AMD Ryzen o superiori</td>
+                    </tr>
+                    <tr>
+                        <td>Memoria RAM</td>
+                        <td>2 GB (Grazie alle ottimizzazioni ZRAM)</td>
+                        <td>4 GB o superiore</td>
+                    </tr>
+                    <tr>
+                        <td>Spazio su Disco</td>
+                        <td>15 GB liberi</td>
+                        <td>30 GB su unità SSD</td>
+                    </tr>
+                    <tr>
+                        <td>Interfaccia Grafica</td>
+                        <td>XFCE Desktop Environment personalizzato</td>
+                        <td>Gestore finestre con accelerazione attiva</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="documentazione" class="technical-section">
+            <h2 class="section-title">Installazione e Verifica</h2>
+            
+            <p style="margin-bottom: 15px;">Dopo aver completato il download dello specchio d'archivio ufficiale, puoi verificare l'integrità del file tramite il terminale locale. Questo assicura che l'immagine non sia corrotta.</p>
+            
+            <div class="code-box">
+                sha256sum moonos-2026.06-x86_64.iso
+            </div>
+
+            <p style="margin-top: 30px; margin-bottom: 15px;">Per i sistemi di sviluppo e il deployment automatizzato dell'ambiente di compilazione del profilo Archiso, i sorgenti ufficiali possono essere gestiti localmente tramite i seguenti passaggi controllati da Git:</p>
+
+            <div class="code-box">
+                git clone https://github.com/tuo-username/il-tuo-repo-moonos.git<br>
+                cd il-tuo-repo-moonos<br>
+                git checkout main
+            </div>
+        </section>
+
+        <footer>
+            <p>MoonOS è un progetto indipendente sviluppato e mantenuto dalla community. I sorgenti e gli script di configurazione del sistema sono rilasciati sotto licenza open source.</p>
+            <p style="margin-top: 10px; color: #58a6ff;">Sito ospitato tramite GitHub Pages e Mirror ospitato su SourceForge.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
