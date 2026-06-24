@@ -3,301 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoonOS - Portale Ufficiale e Documentazione</title>
+    <title>MoonOS Project</title>
     <style>
-        :root {
-            --bg-main: #0d1117;
-            --bg-sidebar: #161b22;
-            --bg-code: #010409;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent: #58a6ff;
-            --border: #30363d;
-        }
-
-        * {
-            box-sizing: border-box;
+        /* Stili Base ispirati al layout dello screenshot */
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 60px;
         }
-
-        header {
-            background-color: var(--bg-sidebar);
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
         .container {
-            width: 90%;
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
+            padding: 20px;
         }
-
-        .nav-container {
+        /* Navbar */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .hero {
-            padding: 60px 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            margin-bottom: 15px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
+        .brand-title {
+            font-weight: bold;
             font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
             color: #ffffff;
-            padding: 10px 25px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background-color 0.2s ease;
         }
-
-        .btn:hover {
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        .btn-download-nav {
             background-color: #1f6feb;
-        }
-
-        .section-block {
-            background-color: var(--bg-sidebar);
-            border: 1px solid var(--border);
+            color: #ffffff !important;
+            padding: 6px 12px;
             border-radius: 6px;
-            padding: 30px;
-            margin-top: 40px;
+            font-weight: bold;
         }
-
-        .section-block h2 {
+        .btn-download-nav:hover {
+            background-color: #388bfd;
+        }
+        .nav-divider {
+            border: 0;
+            border-top: 1px solid #21262d;
+            margin-bottom: 40px;
+        }
+        /* Sezione Hero */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .main-title {
+            font-size: 2.2rem;
             color: #ffffff;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-block h3 {
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin: 25px 0 10px 0;
-        }
-
-        .section-block p {
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-
-        .section-block ul {
-            margin-left: 20px;
             margin-bottom: 20px;
         }
-
-        .section-block li {
-            margin-bottom: 8px;
-        }
-
-        .code-container {
-            background-color: var(--bg-code);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 20px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.9rem;
-            color: #e6edf3;
-            overflow-x: auto;
-            margin: 15px 0;
-            line-height: 1.5;
-        }
-
-        .comment {
+        .hero-subtitle {
             color: #8b949e;
+            font-size: 1.05rem;
+            max-width: 750px;
+            margin: 0 auto 30px auto;
         }
-
-        .link-text {
-            color: var(--accent);
+        .btn-primary {
+            background-color: #238636;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+        /* Sezioni Contenuto */
+        .content-section {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        /* Blocchi di Codice Terminale */
+        pre {
+            background-color: #0d1117;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            color: #e6edf3;
+            font-size: 0.85rem;
+        }
+        /* Link generici e Liste */
+        a {
+            color: #58a6ff;
             text-decoration: none;
         }
-
-        .link-text:hover {
+        a:hover {
             text-decoration: underline;
         }
-
-        footer {
-            margin-top: 60px;
-            border-top: 1px solid var(--border);
-            padding-top: 30px;
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-top: 25px;
+        }
+        /* Footer */
+        .footer {
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            color: #484f58;
+            margin-top: 50px;
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <div class="logo">MoonOS Project</div>
-            <nav>
-<<<<<<< HEAD
-                <a href="https://osmoon-developer.github.io">Home Progetto</a>
-                <a href="#manuale">Manuale Tecnico</a>
-                <a href="#community">Community</a>
-                <a href="https://sourceforge.net/projects/moonos/files/ISOs/" target="_blank" class="btn" style="padding: 5px 12px; font-size: 0.85rem;">Download ISO</a>
-=======
-                <a href="#caratteristiche">Caratteristiche</a>
-                <a href="#specifiche">Specifiche</a>
-                <a href="#documentazione">Documentazione</a>
-                <a href="https://sourceforge.net/projects/moonos/files/ISOs/" target="_blank" class="btn" style="padding: 6px 15px; font-size: 0.85rem;">Download</a>
->>>>>>> a52333c2c6559294a39f6b0ef91d32672607b4c4
-            </nav>
+<div class="container">
+
+    <nav class="navbar">
+        <div class="brand-title">MoonOS Project</div>
+        <ul class="nav-links">
+            <li><a href="#progetto">Home Progetto</a></li>
+            <li><a href="#manuale">Manuale Técnico</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="https://sourceforge.net/projects/moonos-project/files/" class="btn-download-nav" target="_blank">Download ISO</a></li>
+        </ul>
+    </nav>
+
+    <hr class="nav-divider">
+
+    <header class="hero-section" id="progetto">
+        <h1 class="main-title">Sistemi legacy, massime prestazioni.</h1>
+        <p class="hero-subtitle">
+            Una distribuzione desktop basata sul cuore di Arch Linux e ottimizzata tramite i repository di CachyOS. 
+            Progettata per essere leggera sulle macchine legacy ed estremamente reattiva su hardware moderno, 
+            garantendo la massima fluidità grazie ad un set di istruzioni x86_64 di base.
+        </p>
+        <div style="margin-top: 25px;">
+            <a href="https://sourceforge.net/projects/moonos-project/files/" class="btn-primary" target="_blank">Mirror Ufficiale SourceForge</a>
         </div>
     </header>
 
-    <main class="container">
+    <section class="content-section" id="manuale">
+        <h2 class="section-title">Manuale Tecnico Generale del Sistema</h2>
+        <p>Questo spazio raccoglie l'intera documentazione operativa per la gestione, lo sviluppo e la manutenzione di MoonOS. Il sistema integra il modulo <code>ZRAM</code> tramite zram-generator per la compressione della memoria in tempo reale ed esclude i colli di bottiglia dello swap tradizionale su disco.</p>
+        
+        <pre><code># ========================================================================
+# 1. PROCESSO DI COMPILAZIONE DELLA ISO DAI SORGENTI
+# ========================================================================
 
-        <section class="hero">
-<<<<<<< HEAD
-            <h1>Sistemi legacy, massime prestazioni.</h1>
-            <p>Distribuzione desktop basata su Arch Linux e ottimizzata tramite i repository di CachyOS v1 per garantire la massima reattività su hardware datato con set di istruzioni x86_64 base.</p>
-            <a href="https://sourceforge.net/projects/moonos/files/ISOs/" target="_blank" class="btn">Mirror Ufficiale SourceForge</a>
-=======
-            <h1>Sistemi datati, massime prestazioni.</h1>
-            <p>Una distribuzione desktop basata sul cuore di Arch Linux e ottimizzata tramite i repository stabili di CachyOS. Progettata per essere leggera sulle macchine legacy ed estremamente reattiva su hardware moderno.</p>
-            <a href="https://sourceforge.net/projects/moonos/files/ISOs/" target="_blank" class="btn">Scarica la ISO v2026.06</a>
->>>>>>> a52333c2c6559294a39f6b0ef91d32672607b4c4
-        </section>
+# Installazione dello strumento di generazione ufficiale Archiso
+sudo pacman -S archiso
 
-        <section id="manuale" class="section-block">
-            <h2>Manuale Tecnico Generale del Sistema</h2>
-            <p>Questo spazio raccoglie l'intera documentazione operativa per la gestione, lo sviluppo e la manutenzione di MoonOS. Il sistema integra il modulo ZRAM tramite zram-generator per la compressione della memoria in tempo reale ed esclude i colli di bottiglia dello swap tradicional su disco.</p>
+# Clonazione del repository delle configurazioni ed ingresso nella directory
+git clone https://github.com/moonos-developer/archiso-moonos-config.git
+cd archiso-moonos-config
 
-            <div class="code-container">
-                <span class="comment"># =====================================================================</span><br>
-                <span class="comment"># 1. PROCESSO DI COMPILAZIONE DELLA ISO DAI SORGENTI</span><br>
-                <span class="comment"># =====================================================================</span><br><br>
-                <span class="comment"># Installazione dello strumento di generazione ufficiale Archiso</span><br>
-                sudo pacman -S archiso<br><br>
-                <span class="comment"># Clonazione del repository delle configurazioni ed ingresso nella directory</span><br>
-                git clone https://github.com/osmoon-developer/archiso-moonos-config.git<br>
-                cd archiso-moonos-config<br><br>
-                <span class="comment"># Generazione dell'immagine ISO (work=file temporanei, out=destinazione ISO)</span><br>
-                sudo mkarchiso -v -w ./work/ -o ./out/ ./nome_profilo/<br><br>
-                <span class="comment"># Pulizia profonda delle directory intermedie per liberare spazio su disco</span><br>
-                sudo rm -rf ./work/<br><br><br>
-                <span class="comment"># =====================================================================</span><br>
-                <span class="comment"># 2. GESTIONE AMMINISTRATIVA DEI PACCHETTI (PACMAN E FLATPAK)</span><br>
-                <span class="comment"># =====================================================================</span><br><br>
-                <span class="comment"># Aggiornamento completo dei database remoti e dei pacchetti di sistema</span><br>
-                sudo pacman -Syu<br><br>
-                <span class="comment"># Installazione di pacchetti software nativi dai repository</span><br>
-                sudo pacman -S neovim tmux<br><br>
-                <span class="comment"># Rimozione pulita di un pacchetto eliminando le dipendenze orfane</span><br>
-                sudo pacman -Rs nome_pacchetto<br><br>
-                <span class="comment"># Svuotamento della cache locale per recuperare spazio di archiviazione</span><br>
-                sudo pacman -Sc<br><br>
-                <span class="comment"># Ricerca e installazione di applicazioni isolate in ambiente sandbox Flatpak</span><br>
-                flatpak search firefox<br>
-                flatpak install flathub org.mozilla.firefox<br><br>
-                <span class="comment"># Aggiornamento e pulizia dei runtime Flatpak inutilizzati dal sistema</span><br>
-                flatpak update<br>
-                flatpak uninstall --unused<br><br><br>
-                <span class="comment"># =====================================================================</span><br>
-                <span class="comment"># 3. DIAGNOSTICA DI MEMORIA E SCRITTURA IMMAGINE SU USB</span><br>
-                <span class="comment"># =====================================================================</span><br><br>
-                <span class="comment"># Verifica dello stato dei blocchi virtuali compressi ZRAM</span><br>
-                zramctl<br><br>
-                <span class="comment"># Controllo complessivo della RAM e dello swap prioritario attivo</span><br>
-                free -h<br><br>
-                <span class="comment"># Tracciamento dei blocchi hardware per individuare l'unità USB di destinazione</span><br>
-                lsblk<br><br>
-                <span class="comment"># Scrittura diretta a basso livello (sostituire sdX con il nodo reale identificato)</span><br>
-                sudo dd bs=4M if=moonos-2026.06-x86_64.iso of=/dev/sdX conv=fsync oflag=direct status=progress<br><br>
-                <span class="comment"># Svuotamento finale dei buffer prima dell'estrazione hardware</span><br>
-                sync
-            </div>
-        </section>
+# Generazione dell'immagine ISO (outputfile ricoperto, outputdir=outputdir_TAG)
+sudo mkarchiso -v -w ./work/ -o ./out/ ./moon_profile/
 
-        <section id="community" class="section-block">
-            <h2>Canali di Assistenza e Community</h2>
-            <p>Per segnalare malfunzionamenti, coordinarsi nello sviluppo, richiedere l'aggiunta di pacchetti o ricevere supporto in tempo reale, la community si divide nei seguenti canali ufficiali centralizzati:</p>
+# Pulizia profonda della directory intermedia per liberare spazio su disco
+sudo rm -rf ./work/
 
-            <h3>1. Segnalazione Bug e Tracciamento Malfunzionamenti (GitHub Issues)</h3>
-            <p>Se riscontri errori o anomalie sistematiche nel sistema operativo, negli script o nelle build dei pacchetti, apri un bug report ufficiale all'interno della sezione dedicata del nostro repository centrale:</p>
-            <ul>
-                <li>Centro Segnalazione Bug: <a href="https://github.com/osmoon-developer/issues/issues" target="_blank" class="link-text">github.com/osmoon-developer/issues/issues</a></li>
-            </ul>
+# ========================================================================
+# 2. GESTIONE AMMINISTRATIVA DEI PACCHETTI (pacman / flatpak)
+# ========================================================================
 
-            <h3>2. Discussioni Liberi e Richieste di Supporto (GitHub Discussions)</h3>
-            <p>Per fare domande generiche sulla compatibilità dell'hardware legacy, proporre idee per le prossime release o chiedere suggerimenti generali senza aprire una segnalazione di errore, utilizza il forum integrato:</p>
-            <ul>
-                <li>Forum della Community: <a href="https://github.com/osmoon-developer/issues/discussions" target="_blank" class="link-text">github.com/osmoon-developer/issues/discussions</a></li>
-            </ul>
+# Aggiornamento completo dei database remoti e dei pacchetti di sistema
+sudo pacman -Syu
 
-            <h3>3. Archivio dei Rilasci e Codici di Controllo</h3>
-            <p>I file delle immagini stabili, i metadati e le relative somme di controllo hash (MD5, SHA256) per la validazione dei pacchetti scaricati sono pubblicamente consultabili qui:</p>
-            <ul>
-                <li>Mirror dei file ISO su SourceForge: <a href="https://sourceforge.net/projects/moonos/files/ISOs/" target="_blank" class="link-text">SourceForge Files</a></li>
-                <li>Repository dei codici hash di controllo: <a href="https://github.com/osmoon-developer/MoonOS_ISOs" target="_blank" class="link-text">MoonOS_ISOs</a></li>
-            </ul>
+# Installazione di pacchetti software inclusi nei repository
+sudo pacman -S nome_pacchetto
 
-            <h3>4. Server di Comunicazione Istantanea (Discord)</h3>
-            <p>Per la chat in tempo reale, il coordinamento rapido dei test ed il confronto diretto e immediato tra utenti e sviluppatori del progetto:</p>
-            <ul>
-                <li>Server Discord Ufficiale: <a href="https://discord.gg/BKXsVdE2JD" target="_blank" class="link-text">Accedi alla chat su Discord</a></li>
-            </ul>
-        </section>
+# Rimozione pulita di un pacchetto eliminando le dipendenze orfane
+sudo pacman -Rs nome_pacchetto
 
-        <footer>
-            <p>MoonOS è un progetto open source gestito da osmoon-developer. Portale tecnico ospitato tramite GitHub Pages.</p>
-        </footer>
+# Rimozione della cache locale per recuperare spazio di archiviazione
+sudo pacman -Sc
 
-    </main>
+# Ricerca e installazione di applicazioni esterne in ambiente sandbox Flatpak
+flatpak search firefox
+flatpak install flathub org.mozilla.firefox
+
+# Aggiornamento e pulizia dei runtime legati ad applicazioni del sistema
+flatpak update
+flatpak uninstall --unused
+
+# ========================================================================
+# 3. DIAGNOSTICA DI MEMORIA E SCRITTURA IMMAGINI SU USB
+# ========================================================================
+
+# Verifica dello stato dei blocchi virtuali compressi zram
+zramctl
+
+# Controllo complessivo della RAM e dello swap prioritario attivo
+free -h
+
+# Tracciamento dei dispositivi hardware per individuare l'unità USB di destinazione
+lsblk
+
+# Scrittura diretta a basso livello (sostituire sdX con il nodo reale)
+# ATTENZIONE: STATO AVANZATO!
+sudo dd bs=4M if=moonos_2026_06_x86_64.iso of=/dev/sdX conv=fdatasync status=progress
+
+# Svuotamento finale dei buffer prima dell'estrazione hardware
+sync</code></pre>
+    </section>
+
+    <section class="content-section" id="community">
+        <h2 class="section-title">Canali di Assistenza e Community</h2>
+        <p>Per segnalare malfunzionamenti, coordinarsi nello sviluppo, richiedere l'aggiunta di pacchetti o ricevere supporto in tempo reale, la community si chiude nei seguenti canali ufficiali di riferimento:</p>
+        
+        <h3>1. Segnalazione Bug e Tracciamento Malfunzionamenti (GitHub Issues)</h3>
+        <p>Se riscontri errori o anomalie sistemistiche nel sistema operativo, negli script o nelle build dei pacchetti, apri un bug report ufficiale all'interno della sezione dedicata del nostro repository centrale.</p>
+        <ul>
+            <li>Link Segnalazione Bug: <a href="https://github.com/moonos-developer/bug-reports" target="_blank">github.com/moonos-developer/bug-reports</a></li>
+        </ul>
+
+        <h3>2. Discussioni Libere e Richiesta di Supporto (GitHub Discussions)</h3>
+        <p>Per fare domande generiche sulla compatibilità dell'hardware legacy, proporre idee per le prossime release o richiedere suggerimenti generali senza aprire una segnalazione di errore, utilizza il nostro forum.</p>
+        <ul>
+            <li>Forum della Community: <a href="https://github.com/moonos-developer/moonos/discussions" target="_blank">github.com/moonos-developer/moonos/discussions</a></li>
+        </ul>
+
+        <h3>3. Archivio dei File ISO e Codici di Controllo</h3>
+        <p>I file delle immagini stabili, i metadati e le relative impronte di controllo hash (SHA256, SHA512) per la validazione dei pacchetti scaricati sono pubblicamente rintracciabili qui:</p>
+        <ul>
+            <li>Mirror del file ISO su SourceForge: <a href="https://sourceforge.net/projects/moonos-project/files/" target="_blank">SourceForge Files</a></li>
+            <li>Repository dei codici sorgenti di controllo: <a href="https://github.com/moonos-developer/moonos_source" target="_blank">moonos_source</a></li>
+        </ul>
+
+        <h3>4. Server di Comunicazione Istantanea (Discord)</h3>
+        <p>Per la chat in tempo reale, il coordinamento rapido dei test ed il confronto diretto e immediato tra utenti e sviluppatori del progetto:</p>
+        <ul>
+            <li>Server Discord Ufficiale: <a href="https://discord.gg/moonos" target="_blank">Accedi alla chat su Discord</a></li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>MoonOS è un progetto open-source gestito da moonos-developer. Pagine web ospitate tramite GitHub Pages.</p>
+    </footer>
+
+</div>
 
 </body>
 </html>
